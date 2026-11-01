@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Susana beautiful</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>SUSANA BEAUTY</h1>
+                <p>Extensão de cilios · designer de sobrancelhas</p>
+            </div>
+            <div class="navegacao">
+                <a href="#hero">Inicio</a>
+                <a href="#agendamento">Serviços</a>
+                <a href="#sobre">Sobre</a>
+                <a href="https://wa.me/+5575999046200">Contato</a>
+            </div>
+        </nav>
+    </header>
+    <main id="hero">
+        <section class="hero">
+            <div class="textos">
+                <h3>REALCE O QUE TE TORNA ÚNICA</h3>
+                <h2>Beleza que valoriza <br> o seu olhar</h2>
+                <p>Com técnica, cuidado e muito amor pelo que faço, <br> realço a beleza úmica de cada mulher, prezando
+                    <br> sempre pela saúde ocular.</p>
+                <a href="#agendamento"> <img src="assets/icons/whatsapp.png" class="whats-icon">Agendar horario
+                </a>
+            </div>
+            <div class="foto-hero">
+                <img src="src/imagens/foto-hero.jpeg" alt="">
+            </div>
+        </section>
+        <section class="sobre-mim" id="sobre">
+            <div class="susana">
+                <img src="src/imagens/susana.jpeg" alt="susana">
+            </div>
+            <div class="sobre">
+                <h2>SOBRE MIM</h2>
+                <h3>Susana Mello</h3>
+                <p>Me chamo Susana Mello, tenho 23 anos e atuo na <br>área de extensão de cílios há 1 ano e 5 meses.
+                    <br> Meu dever é realçar a beleza única de cada mulher, <br>prezando sempre pela saúde ocular.</p>
+            </div>
+        </section>
+        <section class="agendamento" id="agendamento">
+            <div class="agendamento-topo">
+                <h2>AGENDE SEU HORÁRIO</h2>
+                <p>Escolha os serviços e finalize logo abaixo</p>
+            </div>
+
+            <div class="filtros" id="filtros"></div>
+
+            <div class="servicos-grid" id="servicos"></div>
+
+            <div class="pedido">
+                <h3>Seu pedido</h3>
+                <ul id="lista-pedido"></ul>
+                <div class="pedido-total">
+                    <span>Total</span>
+                    <strong id="total">R$ 0</strong>
+                </div>
+
+                <div class="pedido-campos">
+                    <select id="horario" aria-label="Horário">
+                        <option value="">Horário</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:30">10:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                    </select>
+                    <input type="text" id="nome" placeholder="Seu nome" aria-label="Seu nome">
+                </div>
+
+                <p id="erro" role="alert"></p>
+
+                <button type="button" id="btn-agendar">
+                    <img src="assets/icons/whatsapp.png" class="whats-icon" alt="">Agendar pelo WhatsApp
+                </button>
+            </div>
+
+            <div class="observacoes">
+                <h3>Observações</h3>
+                <ul>
+                    <li>A manutenção da extensão de cílios é entre 15 e 20 dias, podendo chegar a 30 dias, dependendo do
+                        ciclo de crescimento dos fios naturais e dos cuidados.</li>
+                    <li>O procedimento dura em torno de 1 a 1:30h.</li>
+                    <li>Formas de pagamento: dinheiro, Pix e cartão por aproximação (com acréscimo da maquininha).</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
