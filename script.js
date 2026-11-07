@@ -1,7 +1,7 @@
 // Número no formato: 55 + DDD + número, sem espaços nem símbolos
 const NUMERO_WHATSAPP = "5575999046200";
 
-// Pasta e nome das fotos (ajuste a extensão se a sua for .jpeg ou .png)
+// Pasta das fotos (ajuste a extensão de cada foto na lista abaixo se for .jpg ou .png)
 const PASTA_FOTOS = "src/imagens/";
 
 const estilos = [
@@ -68,6 +68,7 @@ const estilos = [
     }
 ];
 
+// ===== ELEMENTOS DA PÁGINA =====
 const elFiltros = document.getElementById("filtros");
 const elServicos = document.getElementById("servicos");
 const elLista = document.getElementById("lista-pedido");
@@ -75,12 +76,17 @@ const elTotal = document.getElementById("total");
 const elHorario = document.getElementById("horario");
 const elNome = document.getElementById("nome");
 const elErro = document.getElementById("erro");
+const elPedido = document.getElementById("pedido");
 const btnAgendar = document.getElementById("btn-agendar");
+const btnIr = document.getElementById("btn-ir-agendar");
 
+// ===== ESTADO =====
 const grupos = ["Todos", ...new Set(estilos.map(s => s.grupo))];
 const selecionados = new Set();
 let filtroAtual = "Todos";
+let pedidoVisivel = false;
 
+// ===== FUNÇÕES AUXILIARES =====
 function preco(valor) {
     return "R$ " + valor;
 }
@@ -108,6 +114,18 @@ function itensEscolhidos() {
     return itens;
 }
 
+function juntar(nomes) {
+    if (nomes.length === 1) return nomes[0];
+    return nomes.slice(0, -1).join(", ") + " e " + nomes[nomes.length - 1];
+}
+
+// Mostra o botão "Agendar?" quando há serviço escolhido
+// e o quadro "Seu pedido" ainda não está na tela
+function atualizarBotaoIr() {
+    btnIr.hidden = selecionados.size === 0 || pedidoVisivel;
+}
+
+// ===== TELA =====
 function criarFoto(estilo) {
     const img = document.createElement("img");
     img.className = "servico-foto";
@@ -115,7 +133,7 @@ function criarFoto(estilo) {
     img.alt = estilo.nome;
     img.loading = "lazy";
 
-    // Se a foto ainda não existir, mostra um espaço rosa no lugar
+    // Se a foto não existir, mostra um espaço rosa no lugar
     img.addEventListener("error", () => {
         const vazio = document.createElement("div");
         vazio.className = "servico-foto sem-foto";
@@ -192,6 +210,7 @@ function renderServicos() {
                 btn.type = "button";
                 btn.className = "btn-servico" + (marcado ? " ativo" : "");
                 btn.textContent = marcado ? "Adicionado" : "Adicionar";
+                btn.setAttribute("aria-pressed", marcado ? "true" : "false");
                 btn.addEventListener("click", () => {
                     if (marcado) {
                         selecionados.delete(k);
@@ -236,13 +255,10 @@ function renderPedido() {
     });
 
     elTotal.textContent = preco(total);
+    atualizarBotaoIr();
 }
 
-function juntar(nomes) {
-    if (nomes.length === 1) return nomes[0];
-    return nomes.slice(0, -1).join(", ") + " e " + nomes[nomes.length - 1];
-}
-
+// ===== AGENDAR =====
 function agendar() {
     const itens = itensEscolhidos();
     const nome = elNome.value.trim();
@@ -273,10 +289,20 @@ function agendar() {
     window.open(url, "_blank");
 }
 
+// ===== EVENTOS =====
 btnAgendar.addEventListener("click", agendar);
 elHorario.addEventListener("change", () => { elErro.textContent = ""; });
 elNome.addEventListener("input", () => { elErro.textContent = ""; });
 
+// Esconde o "Agendar?" quando o pedido já está visível na tela
+if ("IntersectionObserver" in window) {
+    new IntersectionObserver(entradas => {
+        pedidoVisivel = entradas[0].isIntersecting;
+        atualizarBotaoIr();
+    }).observe(elPedido);
+}
+
+// ===== INÍCIO =====
 renderFiltros();
 renderServicos();
 renderPedido();

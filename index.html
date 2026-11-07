@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Susana Beauty: extensão de cílios e design de sobrancelhas. Agende seu horário pelo WhatsApp.">
     <link rel="stylesheet" href="style.css">
-    <title>Susana beautiful</title>
+    <title>Susana Beauty</title>
 </head>
 
 <body>
@@ -13,41 +15,49 @@
         <nav>
             <div class="logo">
                 <h1>SUSANA BEAUTY</h1>
-                <p>Extensão de cilios · designer de sobrancelhas</p>
+                <p>Extensão de cílios · designer de sobrancelhas</p>
             </div>
             <div class="navegacao">
-                <a href="#hero">Inicio</a>
+                <a href="#hero">Início</a>
                 <a href="#agendamento">Serviços</a>
                 <a href="#sobre">Sobre</a>
-                <a href="https://wa.me/+5575999046200">Contato</a>
+                <a href="https://wa.me/5575999046200" target="_blank" rel="noopener">Contato</a>
             </div>
         </nav>
     </header>
+
     <main id="hero">
-        <section class="hero">
-            <div class="textos">
-                <h3>REALCE O QUE TE TORNA ÚNICA</h3>
-                <h2>Beleza que valoriza <br> o seu olhar</h2>
-                <p>Com técnica, cuidado e muito amor pelo que faço, <br> realço a beleza úmica de cada mulher, prezando
-                    <br> sempre pela saúde ocular.</p>
-                <a href="#agendamento"> <img src="assets/icons/whatsapp.png" class="whats-icon">Agendar horario
-                </a>
-            </div>
-            <div class="foto-hero">
-                <img src="src/imagens/foto-hero.jpeg" alt="">
-            </div>
-        </section>
-        <section class="sobre-mim" id="sobre">
-            <div class="susana">
-                <img src="src/imagens/susana.jpeg" alt="susana">
-            </div>
-            <div class="sobre">
-                <h2>SOBRE MIM</h2>
-                <h3>Susana Mello</h3>
-                <p>Me chamo Susana Mello, tenho 23 anos e atuo na <br>área de extensão de cílios há 1 ano e 5 meses.
-                    <br> Meu dever é realçar a beleza única de cada mulher, <br>prezando sempre pela saúde ocular.</p>
-            </div>
-        </section>
+        <div class="reverter">
+            <section class="hero">
+                <div class="textos">
+                    <h3>REALCE O QUE TE TORNA ÚNICA</h3>
+                    <h2>Beleza que valoriza <br> o seu olhar</h2>
+                    <p>Com técnica, cuidado e muito amor pelo que faço, <br> realço a beleza única de cada mulher,
+                        prezando
+                        <br> sempre pela saúde ocular.
+                    </p>
+                    <a href="#agendamento">
+                        <img src="assets/icons/whatsapp.png" class="whats-icon" alt="">Agendar horário
+                    </a>
+                </div>
+                <div class="foto-hero">
+                    <img src="src/imagens/foto-hero.jpeg" alt="Olhar com extensão de cílios">
+                </div>
+            </section>
+
+            <section class="sobre-mim" id="sobre">
+                <div class="susana">
+                    <img src="src/imagens/susana.jpeg" alt="Susana Mello">
+                </div>
+                <div class="sobre">
+                    <h2>SOBRE MIM</h2>
+                    <h3>Susana Mello</h3>
+                    <p>Me chamo Susana Mello, tenho 23 anos e atuo na <br>área de extensão de cílios há 1 ano e 5 meses.
+                        <br> Meu dever é realçar a beleza única de cada mulher, <br>prezando sempre pela saúde ocular.
+                    </p>
+                </div>
+            </section>
+        </div>
         <section class="agendamento" id="agendamento">
             <div class="agendamento-topo">
                 <h2>AGENDE SEU HORÁRIO</h2>
@@ -58,7 +68,7 @@
 
             <div class="servicos-grid" id="servicos"></div>
 
-            <div class="pedido">
+            <div class="pedido" id="pedido">
                 <h3>Seu pedido</h3>
                 <ul id="lista-pedido"></ul>
                 <div class="pedido-total">
@@ -71,12 +81,12 @@
                         <option value="">Horário</option>
                         <option value="08:00">08:00</option>
                         <option value="09:00">09:00</option>
-                        <option value="10:30">10:00</option>
+                        <option value="10:00">10:00</option>
                         <option value="14:00">14:00</option>
                         <option value="15:00">15:00</option>
                         <option value="16:00">16:00</option>
                     </select>
-                    <input type="text" id="nome" placeholder="Seu nome" aria-label="Seu nome">
+                    <input type="text" id="nome" placeholder="Seu nome" aria-label="Seu nome" autocomplete="given-name">
                 </div>
 
                 <p id="erro" role="alert"></p>
@@ -97,9 +107,13 @@
             </div>
         </section>
     </main>
+
     <footer>
 
     </footer>
+
+    <a href="#pedido" id="btn-ir-agendar" class="btn-ir-agendar" hidden>Agendar?</a>
+
     <script src="script.js"></script>
 </body>
 
