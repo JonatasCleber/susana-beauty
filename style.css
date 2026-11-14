@@ -502,6 +502,87 @@ nav {
     display: none;
 }
 
+/* ===== RODAPÉ ===== */
+
+.rodape {
+    background: var(--cor-roxo);
+    color: var(--cor-branco);
+    padding: 45px 20px 20px;
+    text-align: center;
+}
+
+.rodape-conteudo h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.rodape-conteudo p {
+    color: var(--cor-rosa);
+    margin-bottom: 22px;
+}
+
+.rodape-redes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.rodape-redes a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--cor-branco);
+    border: 1px solid var(--cor-rosa);
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.rodape-redes a:hover {
+    background: var(--cor-rosa);
+    color: var(--cor-roxo);
+}
+
+.rodape-redes img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.rodape-divisor {
+    max-width: 1000px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 35px auto 18px;
+}
+
+.rodape-final {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.rodape-final p {
+    font-size: 0.85rem;
+    color: var(--cor-rosa);
+}
+
+.creditos a {
+    color: var(--cor-branco);
+    font-weight: 600;
+}
+
+.creditos a:hover {
+    color: var(--cor-rosa);
+}
+
 /* ===== RESPONSIVO: TABLET E CELULAR ===== */
 @media (max-width: 900px) {
 
@@ -799,5 +880,9 @@ nav {
 
     .observacoes li {
         font-size: 1rem;
+    }
+    .rodape-final {
+        flex-direction: column;
+        text-align: center;
     }
 }
