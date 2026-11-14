@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Susana Beauty: extensão de cílios e design de sobrancelhas. Agende seu horário pelo WhatsApp.">
+        <link rel="icon" type="image/png" href="assets/icons/logo.jpeg">
     <link rel="stylesheet" href="style.css">
     <title>Susana Beauty</title>
 </head>
@@ -17,7 +18,14 @@
                 <h1>SUSANA BEAUTY</h1>
                 <p>Extensão de cílios · designer de sobrancelhas</p>
             </div>
-            <div class="navegacao">
+
+            <!-- botão do menu hambúrguer (só aparece no celular) -->
+            <button type="button" class="menu-toggle" id="menu-toggle"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="navegacao" id="menu">
                 <a href="#hero">Início</a>
                 <a href="#agendamento">Serviços</a>
                 <a href="#sobre">Sobre</a>
@@ -36,7 +44,7 @@
                         prezando
                         <br> sempre pela saúde ocular.
                     </p>
-                    <a href="#agendamento">
+                    <a href="#agendamento" class="botao-agendar-pc">
                         <img src="assets/icons/whatsapp.png" class="whats-icon" alt="">Agendar horário
                     </a>
                 </div>
@@ -52,9 +60,12 @@
                 <div class="sobre">
                     <h2>SOBRE MIM</h2>
                     <h3>Susana Mello</h3>
-                    <p>Me chamo Susana Mello, tenho 23 anos e atuo na <br>área de extensão de cílios há 1 ano e 5 meses.
+                    <p> Chamo-me Susana Mello, tenho <strong id="idade"></strong> anos e atuo na <br>área de extensão de cílios há <strong id="contador-tempo"></strong>.
                         <br> Meu dever é realçar a beleza única de cada mulher, <br>prezando sempre pela saúde ocular.
                     </p>
+                    <a href="#agendamento" class="botao-agendar-mobile">
+                        <img src="assets/icons/whatsapp.png" class="whats-icon" alt="">Agendar horário
+                    </a>
                 </div>
             </section>
         </div>

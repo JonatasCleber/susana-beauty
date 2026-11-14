@@ -114,6 +114,50 @@ function itensEscolhidos() {
     return itens;
 }
 
+function atualizarIdade(){
+      // Data de nascimento: 30 de Outubro de 2002
+      const nascimento = new Date('2002-10-30T00:00:00');
+      const hoje = new Date();
+
+      let idade = hoje.getFullYear() - nascimento.getFullYear();
+
+      // Verifica se ainda não chegou no mês e dia do aniversário este ano
+      const mesAtual = hoje.getMonth();
+      const mesNasc = nascimento.getMonth();
+
+      if (mesAtual < mesNasc || (mesAtual === mesNasc && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+      }
+
+      document.getElementById('idade').textContent = `${idade} anos`;
+    
+}
+atualizarIdade()
+function atualizarTempo(){
+    const inicio = new Date('2025-02-18T00:00:00')
+    const hoje = new Date()
+
+    let anos = hoje.getFullYear() - inicio.getFullYear()
+    let meses = hoje.getMonth() - inicio.getMonth()
+
+    if (meses < 0 || (meses === 0 && hoje.getDate() < inicio.getDate())) {
+      anos--;
+      meses += 12;
+    }
+
+    if (hoje.getDate() < inicio.getDate()) {
+      meses--;
+      if (meses < 0) {
+        meses = 11;
+      }
+    }
+    const textoAnos = anos === 1 ? '1 ano' : `${anos} anos`;
+    const textoMeses = meses === 1 ? '1 mês' : `${meses} meses`;
+
+    document.getElementById('contador-tempo').textContent = `${textoAnos} e ${textoMeses}`;
+
+}
+atualizarTempo()
 function juntar(nomes) {
     if (nomes.length === 1) return nomes[0];
     return nomes.slice(0, -1).join(", ") + " e " + nomes[nomes.length - 1];
@@ -301,6 +345,30 @@ if ("IntersectionObserver" in window) {
         atualizarBotaoIr();
     }).observe(elPedido);
 }
+
+// ===== NOVO: MENU DO CELULAR =====
+const btnMenu = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+
+function atualizarMenu(aberto) {
+    menu.classList.toggle("aberto", aberto);
+    btnMenu.setAttribute("aria-expanded", aberto ? "true" : "false");
+    btnMenu.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+}
+
+btnMenu.addEventListener("click", () => {
+    atualizarMenu(!menu.classList.contains("aberto"));
+});
+
+// fecha o menu ao tocar em um link
+menu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => atualizarMenu(false));
+});
+
+// fecha com a tecla Esc
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") atualizarMenu(false);
+});
 
 // ===== INÍCIO =====
 renderFiltros();
